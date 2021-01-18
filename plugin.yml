@@ -1,0 +1,14 @@
+name: SimpleWarps
+version: 1.0
+main: eu.treppi.simplewarps.core.SimplewarpsPlugin
+
+author: treppi
+description: plugin made for hopesalat
+
+commands:
+  setwarp:
+    description: setwarp command
+  delwarp:
+    description: delwarp command
+  warp:
+    description: warp command
