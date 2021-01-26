@@ -1,5 +1,5 @@
 # SimpleWarps
-simple minecraft warp plugin.
+simple minecraft warp plugin, made for hopesalat.
 
 ## Commands
 - /warps
