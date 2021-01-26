@@ -12,3 +12,7 @@ commands:
     description: delwarp command
   warp:
     description: warp command
+  warps:
+    description: warp list
+  simplewarps:
+    description: simplewarps admin command

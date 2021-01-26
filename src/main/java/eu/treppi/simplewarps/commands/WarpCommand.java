@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class WarpCommand implements CommandExecutor {
-    private static final String SYNTAX = "{prefix} &bSyntax: /warp <name>";
+    private static final String SYNTAX = "{prefix} &bSyntax: /warp <name> &8|| &b/warps";
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if(sender instanceof Player) {
             if(!sender.hasPermission("simplewarps.warp")) {

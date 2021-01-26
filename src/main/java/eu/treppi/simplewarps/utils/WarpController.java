@@ -25,29 +25,30 @@ public class WarpController {
 
         for(int i = 0; true; i++) {
 
-            if(!storage.contains("warps."+i)) {
+            if(!storage.contains("warps."+i))
                 return warplist;
+
+            if(!storage.getBoolean("warps."+i+".removed")) {
+                String name = storage.getString("warps."+i+".name");
+                String creator = storage.getString("warps."+i+".creator");
+                long creationTime = storage.getLong("warps."+i+".creationTime");
+
+                String worldname = storage.getString("warps."+i+".location.world");
+                World world = Bukkit.getWorld(worldname);
+                double x = storage.getDouble("warps."+i+".location.x");
+                double y = storage.getDouble("warps."+i+".location.y");
+                double z = storage.getDouble("warps."+i+".location.z");
+
+                Location loc = new Location(world, x, y, z);
+                float pitch = Float.parseFloat(Double.toString(storage.getDouble("warps."+i+".location.pitch")));
+                float yaw = Float.parseFloat(Double.toString(storage.getDouble("warps."+i+".location.yaw")));
+
+                loc.setPitch(pitch);
+                loc.setYaw(yaw);
+
+                Warp warp = new Warp(name, loc, creator, creationTime);
+                warplist.add(warp);
             }
-
-            String name = storage.getString("warps."+i+".name");
-            String creator = storage.getString("warps."+i+".creator");
-            long creationTime = storage.getLong("warps."+i+".creationTime");
-
-            String worldname = storage.getString("warps."+i+".location.world");
-            World world = Bukkit.getWorld(worldname);
-            double x = storage.getDouble("warps."+i+".location.x");
-            double y = storage.getDouble("warps."+i+".location.y");
-            double z = storage.getDouble("warps."+i+".location.z");
-
-            Location loc = new Location(world, x, y, z);
-            float pitch = Float.parseFloat(Double.toString(storage.getDouble("warps."+i+".location.pitch")));
-            float yaw = Float.parseFloat(Double.toString(storage.getDouble("warps."+i+".location.yaw")));
-
-            loc.setPitch(pitch);
-            loc.setYaw(yaw);
-
-            Warp warp = new Warp(name, loc, creator, creationTime);
-            warplist.add(warp);
         }
     }
 
@@ -55,7 +56,7 @@ public class WarpController {
         FileConfiguration storage = getStorage();
 
         for(int i = 0; true; i++) {
-            if(!storage.contains("warps."+i) || storage.getString("warps."+i+".name").equalsIgnoreCase(warp.getName())) {
+            if(!storage.contains("warps."+i)|| storage.getString("warps."+i+".name").equalsIgnoreCase(warp.getName()) || storage.getBoolean("warps."+i+".removed")) {
 
                 storage.set("warps."+i+".name", warp.getName());
                 storage.set("warps."+i+".creator", warp.getCreator());
@@ -71,6 +72,23 @@ public class WarpController {
                 storage.set("warps."+i+".location.yaw", loc.getYaw());
 
                 saveStorage(storage);
+                WarpController.reloadWarps();
+                return;
+            }
+        }
+    }
+
+    public static void deleteWarp(Warp warp) {
+        FileConfiguration storage = getStorage();
+
+        for(int i = 0; true; i++) {
+            if(!storage.contains("warps."+i))
+                return;
+
+            if(storage.getString("warps."+i+".name").equalsIgnoreCase(warp.getName())) {
+                storage.set("warps."+i+".removed", true);
+                saveStorage(storage);
+                reloadWarps();
                 return;
             }
         }

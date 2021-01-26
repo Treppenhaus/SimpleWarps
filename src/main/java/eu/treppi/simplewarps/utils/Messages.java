@@ -12,7 +12,7 @@ public class Messages {
         return message;
     }
 
-    public static final String PREFIX = "&eSimpleWarps &8>> &c";
+    public static final String PREFIX = "&eSimpleWarps &8>> &7";
 
     public static final String NOPLAYER = "{prefix} you need to be a player to use this command!";
     public static final String NOPERMISSION = "{prefix} you don't have permission to execute this command!";
@@ -20,4 +20,6 @@ public class Messages {
     public static final String WARP_DOESNT_EXIST = "{prefix} no warp with such name was found!";
     public static final String WARP_CREATED = "{prefix} warp \"{warp.name}\" successfully created!";
     public static final String TELEPORT = "{prefix} you have been teleported to \"{warp.name}\"!";
+    public static final String RELOAD = "{prefix} &areloaded successfully!";
+    public static final String DELETED = "{prefix} &adeleted {warp.name}!";
 }
