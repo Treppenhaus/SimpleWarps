@@ -15,6 +15,10 @@ public class Warp {
         this.creationTime = creationTime;
     }
 
+    public void delete() {
+        WarpController.deleteWarp(this);
+    }
+
     public String getName() {
         return name;
     }

@@ -15,8 +15,8 @@ public class Messages {
     public static final String PREFIX = "&eSimpleWarps &8>> &7";
 
     public static final String NOPLAYER = "{prefix} you need to be a player to use this command!";
-    public static final String NOPERMISSION = "{prefix} you don't have permission to execute this command!";
-    public static final String WARP_EXISTS = "{prefix} a warp with that name already exists! use /delwarp <name> to delete it";
+    public static final String NOPERMISSION = "{prefix} you do not have permission to execute this command!";
+    public static final String WARP_EXISTS = "{prefix} a warp with this name already exists! use /delwarp <name> to delete it";
     public static final String WARP_DOESNT_EXIST = "{prefix} no warp with such name was found!";
     public static final String WARP_CREATED = "{prefix} warp \"{warp.name}\" successfully created!";
     public static final String TELEPORT = "{prefix} you have been teleported to \"{warp.name}\"!";

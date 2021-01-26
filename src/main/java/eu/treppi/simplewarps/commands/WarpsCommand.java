@@ -18,13 +18,12 @@ public class WarpsCommand implements CommandExecutor {
 
         for(int i = 0; i < warps.size(); i++) {
             Warp warp = warps.get(i);
-            msg.append("&b" + warp.getName());
+            msg.append("&b").append(warp.getName());
 
             if(!(i == warps.size() - 1)) msg.append(" &7/ ");
         }
 
         sender.sendMessage(Messages.transformMessage("{prefix} " + msg));
-
         return false;
     }
 }

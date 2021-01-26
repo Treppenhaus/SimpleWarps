@@ -1,6 +1,5 @@
 package eu.treppi.simplewarps.commands;
 
-import eu.treppi.simplewarps.core.SimplewarpsPlugin;
 import eu.treppi.simplewarps.utils.Messages;
 import eu.treppi.simplewarps.utils.Warp;
 import eu.treppi.simplewarps.utils.WarpController;
@@ -20,10 +19,12 @@ public class SetwarpCommand implements CommandExecutor {
                 sender.sendMessage(Messages.transformMessage(Messages.NOPERMISSION));
                 return false;
             }
+
             if(!(args.length == 1)) {
                 sender.sendMessage(Messages.transformMessage(SYNTAX));
                 return false;
             }
+
 
             Player player = (Player) sender;
             Location location = player.getLocation();
@@ -33,6 +34,7 @@ public class SetwarpCommand implements CommandExecutor {
                 sender.sendMessage(Messages.transformMessage(Messages.WARP_EXISTS));
                 return false;
             }
+
             String creator = player.getUniqueId().toString();
             long currentTime = System.currentTimeMillis();
 

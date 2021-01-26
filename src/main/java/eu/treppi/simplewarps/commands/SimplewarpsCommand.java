@@ -11,7 +11,7 @@ public class SimplewarpsCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
         if(sender.hasPermission("simplewarps.admin")) {
-            if(args.length != 1) {
+            if(args.length == 1) {
 
                 if(args[0].equalsIgnoreCase("reload")) {
                     WarpController.reloadWarps();

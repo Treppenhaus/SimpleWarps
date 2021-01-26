@@ -2,6 +2,7 @@ package eu.treppi.simplewarps.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -71,6 +72,7 @@ public class WarpController {
                 storage.set("warps."+i+".location.pitch", loc.getPitch());
                 storage.set("warps."+i+".location.yaw", loc.getYaw());
 
+                storage.set("warps."+i+".removed", false);
                 saveStorage(storage);
                 WarpController.reloadWarps();
                 return;
@@ -96,6 +98,7 @@ public class WarpController {
 
     public static void teleport(Player player, Warp warp) {
         player.teleport(warp.getLocation());
+        player.playSound(player.getLocation(), Sound.ENTITY_ENDEREYE_LAUNCH, 1, 1);
         player.sendMessage(Messages.transformMessage(Messages.TELEPORT, warp));
     }
 

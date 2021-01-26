@@ -5,8 +5,6 @@ import eu.treppi.simplewarps.utils.WarpController;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-
 public class SimplewarpsPlugin extends JavaPlugin {
 
     public void onEnable() {
